@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="cpprest" targetName="pplx_test" />
+      <config projectName="cpprest" targetName="blackjackserver" />
+      <config projectName="cpprest" targetName="httpclient_test" />
+      <config projectName="cpprest" targetName="common_utilities" />
+      <config projectName="cpprest" targetName="test_runner" />
+      <config projectName="cpprest" targetName="oauth2client" />
+      <config projectName="cpprest" targetName="json_test" />
+      <config projectName="cpprest" targetName="websocketclient_test" />
+      <config projectName="cpprest" targetName="blackjackclient" />
+      <config projectName="cpprest" targetName="utils_test" />
+      <config projectName="cpprest" targetName="streams_test" />
+      <config projectName="cpprest" targetName="cpprest" />
+      <config projectName="cpprest" targetName="oauth1client" />
+      <config projectName="cpprest" targetName="websockettest_utilities" />
+      <config projectName="cpprest" targetName="httptest_utilities" />
+      <config projectName="cpprest" targetName="httplistener_test" />
+      <config projectName="cpprest" targetName="SearchFile" />
+      <config projectName="cpprest" targetName="samples" />
+      <config projectName="cpprest" targetName="BingRequest" />
+      <config projectName="cpprest" targetName="uri_test" />
+      <config projectName="cpprest" targetName="unittestpp" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2838d493-282d-4b73-839e-2924a7fafa9e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/libs/websocketpp/websocketpp/transport/asio/connection.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Release/libs/websocketpp/websocketpp/transport/asio/connection.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Release/src/uri/uri.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Release/src/uri/uri.cpp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/Release/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="json.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/json/json.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1744" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="json_parsing.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/json/json_parsing.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="1167" selection-start-line="1167" selection-end-line="1167" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="json.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/include/cpprest/json.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+              <folding>
+                <element signature="e#1135#1154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="json_serialization.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/json/json_serialization.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="ws_client.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/websockets/client/ws_client.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Facebook.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/samples/FacebookDemo/Facebook.h">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-251" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cpprestsdk140.sln" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cpprestsdk140.sln">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/tests/functional/json/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="json_tests.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/tests/functional/json/json_tests.h">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Common.Build.settings" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Build/Common.Build.settings">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Config.Definitions.props" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Build/Config.Definitions.props">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="http_client_asio.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/http/client/http_client_asio.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-270">
+              <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uri.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/uri/uri.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connection.hpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Release/libs/websocketpp/websocketpp/transport/asio/connection.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="425" selection-start-line="425" selection-end-line="425" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tell_bug.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/tell_bug.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="without_content_length_2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/without_content_length_2.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="WriteBufferAndSyncStrTest1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/WriteBufferAndSyncStrTest1.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="http_client.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/http/client/http_client.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1475">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#607#626#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="other.vcxitems" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/src/build/other.vcxitems">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="outside_tests.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/github.com/cpprestsdk/Release/tests/functional/http/client/outside_tests.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-65">
+              <caret line="190" column="32" selection-start-line="190" selection-start-column="32" selection-end-line="190" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fstream_read_5.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_read_5.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="fstream_read_to_end_2.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_read_to_end_2.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="fstream_readline_1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_readline_1.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="fstream_read_1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_read_1.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="file.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.debug/Binaries/file.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="bingrequest.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Release/samples/BingRequest/bingrequest.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#567#599#0" expanded="true" />
+                <element signature="e#1771#1807#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>AND_CAPTURE_MEMBER_FUNCTION_POINTERS</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Release/src/http/client/http_client_asio.cpp" />
+        <option value="$PROJECT_DIR$/Release/src/uri/uri.cpp" />
+        <option value="$PROJECT_DIR$/Release/libs/websocketpp/websocketpp/transport/asio/connection.hpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="45" />
+    <option name="y" value="23" />
+    <option name="width" value="1860" />
+    <option name="height" value="1057" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cpprest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cpprestsdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cpprest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cpprestsdk" type="462c0819:PsiDirectoryNode" />
+              <item name="Release" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cpprest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cpprestsdk" type="462c0819:PsiDirectoryNode" />
+              <item name="Release" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cpprest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cpprestsdk" type="462c0819:PsiDirectoryNode" />
+              <item name="Release" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="uri" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.BingRequest">
+    <configuration name="BingRequest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="BingRequest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpprest" RUN_TARGET_NAME="BingRequest" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="SearchFile" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="SearchFile" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpprest" RUN_TARGET_NAME="SearchFile" />
+    <configuration name="blackjackclient" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="blackjackclient" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpprest" RUN_TARGET_NAME="blackjackclient" />
+    <configuration name="blackjackserver" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="blackjackserver" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpprest" RUN_TARGET_NAME="blackjackserver" />
+    <configuration name="common_utilities" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="common_utilities" CONFIG_NAME="Debug" />
+    <configuration name="cpprest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="cpprest" CONFIG_NAME="Debug" />
+    <configuration name="httpclient_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="httpclient_test" CONFIG_NAME="Debug" />
+    <configuration name="httplistener_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="httplistener_test" CONFIG_NAME="Debug" />
+    <configuration name="httptest_utilities" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="httptest_utilities" CONFIG_NAME="Debug" />
+    <configuration name="json_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="json_test" CONFIG_NAME="Debug" />
+    <configuration name="oauth1client" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="oauth1client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpprest" RUN_TARGET_NAME="oauth1client" />
+    <configuration name="oauth2client" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="oauth2client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpprest" RUN_TARGET_NAME="oauth2client" />
+    <configuration name="pplx_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="pplx_test" CONFIG_NAME="Debug" />
+    <configuration name="samples" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="samples" CONFIG_NAME="Debug" />
+    <configuration name="streams_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="streams_test" CONFIG_NAME="Debug" />
+    <configuration name="test_runner" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="test_runner" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cpprest" RUN_TARGET_NAME="test_runner" />
+    <configuration name="unittestpp" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="unittestpp" CONFIG_NAME="Debug" />
+    <configuration name="uri_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="uri_test" CONFIG_NAME="Debug" />
+    <configuration name="utils_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="utils_test" CONFIG_NAME="Debug" />
+    <configuration name="websocketclient_test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="websocketclient_test" CONFIG_NAME="Debug" />
+    <configuration name="websockettest_utilities" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cpprest" TARGET_NAME="websockettest_utilities" CONFIG_NAME="Debug" />
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.samples" />
+      <item itemvalue="Application.BingRequest" />
+      <item itemvalue="Application.blackjackclient" />
+      <item itemvalue="Application.blackjackserver" />
+      <item itemvalue="Application.oauth1client" />
+      <item itemvalue="Application.oauth2client" />
+      <item itemvalue="Application.SearchFile" />
+      <item itemvalue="Application.cpprest" />
+      <item itemvalue="Application.test_runner" />
+      <item itemvalue="Application.unittestpp" />
+      <item itemvalue="Application.common_utilities" />
+      <item itemvalue="Application.httpclient_test" />
+      <item itemvalue="Application.httplistener_test" />
+      <item itemvalue="Application.httptest_utilities" />
+      <item itemvalue="Application.json_test" />
+      <item itemvalue="Application.pplx_test" />
+      <item itemvalue="Application.streams_test" />
+      <item itemvalue="Application.uri_test" />
+      <item itemvalue="Application.utils_test" />
+      <item itemvalue="Application.websockettest_utilities" />
+      <item itemvalue="Application.websocketclient_test" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2838d493-282d-4b73-839e-2924a7fafa9e" name="Default" comment="" />
+      <created>1530691017967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530691017967</updated>
+      <workItem from="1530691020114" duration="5888000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="5888000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="45" y="23" width="1860" height="1057" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21666667" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="CMake" weight="0.46083418" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3896236" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Release/src/http/client/http_client_asio.cpp</url>
+          <line>39</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Release/src/json/json_serialization.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/src/websockets/client/ws_client.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/samples/FacebookDemo/Facebook.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-251" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cpprestsdk140.sln">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cpprestsdk141.sln">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/tests/functional/json/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/tests/functional/json/json_tests.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Build/Common.Build.settings">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Build/Config.Definitions.props">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/cmake/cpprest_find_boost.cmake">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/cmake/cpprest_find_openssl.cmake">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/cmake/cpprest_find_websocketpp.cmake">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/src/http/client/http_client.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1475">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#607#626#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/src/build/other.vcxitems">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/github.com/cpprestsdk/Release/tests/functional/http/client/outside_tests.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="190" column="32" selection-start-line="190" selection-start-column="32" selection-end-line="190" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_read_5.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_read_to_end_2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_readline_1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/fstream_read_1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/file.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/src/json/json.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1744" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/include/cpprest/json.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding>
+            <element signature="e#1135#1154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/src/json/json_parsing.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="1167" selection-start-line="1167" selection-end-line="1167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/tell_bug.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/without_content_length_2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.debug/Binaries/WriteBufferAndSyncStrTest1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/samples/BingRequest/bingrequest.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#567#599#0" expanded="true" />
+            <element signature="e#1771#1807#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/src/http/client/http_client_asio.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/src/uri/uri.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Release/libs/websocketpp/websocketpp/transport/asio/connection.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="425" selection-start-line="425" selection-end-line="425" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
