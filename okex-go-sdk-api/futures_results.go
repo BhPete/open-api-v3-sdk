@@ -18,6 +18,11 @@ type ExchangeRate struct {
 	Timestamp    string  `json:"timestamp"`
 }
 
+type BizWarmTips struct {
+	Code    int    `json:"code"`
+	Message string `json:"message"`
+}
+
 type Result struct {
 	Result bool `json:"result"`
 }
@@ -29,6 +34,7 @@ type PageResult struct {
 }
 
 type FuturesPosition struct {
+	BizWarmTips
 	Result
 	MarginMode    string
 	CrossPosition []FuturesCrossPositionHolding
@@ -81,6 +87,7 @@ type FuturesPositionBase struct {
 }
 
 type FuturesAccount struct {
+	BizWarmTips
 	Result
 	MarginMode   string
 	CrossAccount map[string]FuturesCrossAccount
@@ -125,31 +132,37 @@ type FuturesCrossAccount struct {
 	TotalAvailBalance float64 `json:"total_avail_balance,string"`
 }
 
-type FuturesCurrencyAccounts struct {
+type FuturesCurrencyAccount struct {
+	BizWarmTips
 	Result
-	MarginMode   int
-	crossAccount FuturesCrossAccount
-	fixedAccount FuturesFixedAccount
+	MarginMode   string
+	CrossAccount FuturesCrossAccount
+	FixedAccount FuturesFixedAccount
 }
 
 type FuturesCurrencyLedger struct {
-	LedgerId  int64   `json:"ledger_id,string"`
-	Amount    float64 `json:"amount,string"`
-	CreatedAt string  `json:"created_at"`
+	LedgerId  int64                        `json:"ledger_id,string"`
+	Amount    float64                      `json:"amount,string"`
+	Balance   float64                      `json:"balance,string"`
+	Currency  string                       `json:"currency"`
+	Type      string                       `json:"type"`
+	Timestamp string                       `json:"timestamp"`
+	Details   FuturesCurrencyLedgerDetails `json:"details"`
+}
 
-	Type    int64 `json:"type,string"`
-	Details int64 `json:"details,string"`
-
-	Timestamp string `json:"timestamp"`
+type FuturesCurrencyLedgerDetails struct {
+	OrderId      int64  `json:"order_id"`
+	InstrumentId string `json:"instrument_id"`
 }
 
 type FuturesAccountsHolds struct {
-	InstrumentId int64  `json:"instrument_id,string"`
-	Amount       int64  `json:"amount,string"`
-	Timestamp    string `json:"timestamp"`
+	InstrumentId string  `json:"instrument_id"`
+	Amount       float64 `json:"amount,string"`
+	Timestamp    string  `json:"timestamp"`
 }
 
 type FuturesNewOrderResult struct {
+	BizWarmTips
 	Result
 	ClientOid string `json:"client_oid"`
 	OrderId   int64  `json:"order_id,string"`
@@ -160,23 +173,30 @@ type FuturesBatchNewOrderResult struct {
 	OrderInfo []OrderInfo `json:"order_info"`
 }
 
-type ErrorCode struct {
-	ErrorCode int64 `json:"error_code,string"`
+type CodeMessage struct {
+	ErrorCode    int64  `json:"error_code"`
+	ErrorMessage string `json:"error_message"`
 }
 
 /*
   If OrderId = -1, ErrorCode > 0, error order
 */
 type OrderInfo struct {
-	OrderId string `json:"order_id"`
-	ErrorCode
+	ClientOid string `json:"client_oid"`
+	OrderId   string `json:"order_id"`
+	CodeMessage
 }
 
 type FuturesCancelInstrumentOrderResult struct {
+	Result
+	OrderId      string `json:"order_id"`
+	InstrumentId string `json:"instrument_id"`
 }
 
-type FuturesCancelInstrumentOrdersResult struct {
-	OrderIds []string
+type FuturesBatchCancelInstrumentOrdersResult struct {
+	Result
+	OrderIds     []string `json:"order_ids"`
+	InstrumentId string   `json:"instrument_id"`
 }
 
 type FuturesClosePositionResult struct {
@@ -186,19 +206,19 @@ type FuturesClosePositionResult struct {
 
 type ClosePositionInfo struct {
 	InstrumentId string `json:"instrument_id"`
-	ErrorCode
+	CodeMessage
 }
 
 type FuturesGetOrdersResult struct {
 	Result
-	Orders []FuturesGetOrderResult `json:"orders"`
+	Orders []FuturesGetOrderResult `json:"order_info"`
 }
 
 type FuturesGetOrderResult struct {
 	InstrumentId string  `json:"instrument_id"`
-	OrderQty     float64 `json:"order_Qty,string"`
-	CreateDate   string  `json:"create_date"`
-	FilledQty    float64 `json:"filled_Qty,string"`
+	Size         int64   `json:"size,string"`
+	Timestamp    string  `json:"timestamp"`
+	FilledQty    float64 `json:"filled_qty,string"`
 	Fee          float64 `json:"fee,string"`
 	OrderId      int64   `json:"order_id,string"`
 	Price        float64 `json:"price,string"`
@@ -206,21 +226,17 @@ type FuturesGetOrderResult struct {
 	Status       int     `json:"status,string"`
 	Type         int     `json:"type,string"`
 	ContractVal  float64 `json:"contract_val,string"`
-	LeverRate    float64 `json:"lever_rate,string"`
-}
-
-type FuturesFillsResult struct {
-	FuturesFillResult []FuturesFillResult
+	Leverage     float64 `json:"leverage,string"`
 }
 
 type FuturesFillResult struct {
 	TradeId      int64   `json:"trade_id,string"`
 	InstrumentId string  `json:"instrument_id"`
 	Price        float64 `json:"price,string"`
-	Size         float64 `json:"size,string"`
+	OrderQty     float64 `json:"order_qty,string"`
 	OrderId      int64   `json:"order_id,string"`
 	CreatedAt    string  `json:"created_at"`
-	Liquidity    string  `json:"liquidity"`
+	ExecType     string  `json:"exec_type"`
 	Fee          float64 `json:"fee,string"`
 	Side         string  `json:"side"`
 }

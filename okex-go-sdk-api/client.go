@@ -24,6 +24,7 @@ type Client struct {
 }
 
 type ApiMessage struct {
+	Code    int    `json:"code"`
 	Message string `json:"message"`
 }
 
@@ -104,7 +105,9 @@ func (client *Client) Request(method string, requestPath string,
 		printResponse(status, message, body)
 	}
 
-	response.Header.Add(ResultDataJsonString, string(body))
+	responseBodyString := string(body)
+
+	response.Header.Add(ResultDataJsonString, responseBodyString)
 
 	limit := response.Header.Get("Ok-Limit")
 	if limit != "" {
@@ -133,17 +136,16 @@ func (client *Client) Request(method string, requestPath string,
 			}
 		}
 		return response, nil
-	} else if status == 400 || status == 401 || status == 500 {
+	} else if status >= 400 || status <= 500 {
+		fmt.Println("Http error(400~500) result: status=" + IntToString(status) + ", message=" + message + ", body=" + responseBodyString)
 		if body != nil {
-			var apiMessage ApiMessage
-			err := JsonBytes2Struct(body, &apiMessage)
+			err := JsonBytes2Struct(body, &result)
 			if err != nil {
 				return response, err
 			}
-			message = strconv.Itoa(status) + " " + apiMessage.Message
 		}
-		return response, errors.New(message)
 	} else {
+		fmt.Println("Http error result: status=" + IntToString(status) + ", message=" + message + ", body=" + responseBodyString)
 		return response, errors.New(message)
 	}
 	return response, nil

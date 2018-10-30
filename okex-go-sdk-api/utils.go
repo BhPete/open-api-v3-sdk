@@ -361,10 +361,16 @@ func FmtPrintln(flag string, info interface{}) {
 	}
 }
 
-func GetInstrumentIdUri(uri, instrument_id string) string {
-	return strings.Replace(uri, "{instrument_id}", instrument_id, -1)
+func GetInstrumentIdUri(uri, instrumentId string) string {
+	return strings.Replace(uri, "{instrument_id}", instrumentId, -1)
 }
 
 func GetCurrencyUri(uri, currency string) string {
 	return strings.Replace(uri, "{currency}", currency, -1)
+}
+
+func GetInstrumentIdOrdersUri(uri, instrumentId string, orderId int64) string {
+	uri = strings.Replace(uri, "{instrument_id}", instrumentId, -1)
+	uri = strings.Replace(uri, "{order_id}", Int64ToString(orderId), -1)
+	return uri
 }

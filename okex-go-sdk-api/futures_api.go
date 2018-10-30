@@ -12,12 +12,6 @@ import (
  @version 1.0.0
 */
 
-const (
-	CrossPositionFlag = "force_liqu_price"
-	FixedAccountFlag  = "hold"
-	FuturesPathPrefix = "/api/futures/v3/"
-)
-
 /*
  =============================== Futures market api ===============================
 */
@@ -195,7 +189,7 @@ func (client *Client) GetFuturesAccounts() (FuturesAccount, error) {
  Get the futures contract currency account @see file : futures_constants.go
  return struct: FuturesCurrencyAccounts
 */
-func (client *Client) GetFuturesAccountsByCurrency(currency string) (FuturesCurrencyAccounts, error) {
+func (client *Client) GetFuturesAccountsByCurrency(currency string) (FuturesCurrencyAccount, error) {
 	response, err := client.Request(GET, GetCurrencyUri(FUTURES_ACCOUNT_CURRENCY_INFO, currency), nil, nil)
 	return parseCurrencyAccounts(response, err)
 }
@@ -203,9 +197,14 @@ func (client *Client) GetFuturesAccountsByCurrency(currency string) (FuturesCurr
 /*
  Get the futures contract currency ledger
 */
-func (client *Client) GetFuturesAccountsLedgerByCurrency(currency string) (FuturesCurrencyLedger, error) {
-	var ledger FuturesCurrencyLedger
-	_, err := client.Request(GET, GetCurrencyUri(FUTURES_ACCOUNT_CURRENCY_LEDGER, currency), nil, &ledger)
+func (client *Client) GetFuturesAccountsLedgerByCurrency(currency string, from, to, limit int) ([]FuturesCurrencyLedger, error) {
+	var ledger [] FuturesCurrencyLedger
+	params := NewParams()
+	params["from"] = Int2String(from)
+	params["to"] = Int2String(to)
+	params["limit"] = Int2String(limit)
+	requestPath := BuildParams(GetCurrencyUri(FUTURES_ACCOUNT_CURRENCY_LEDGER, currency), params)
+	_, err := client.Request(GET, requestPath, nil, &ledger)
 	return ledger, err
 }
 
@@ -223,7 +222,7 @@ func (client *Client) GetFuturesAccountsHoldsByInstrumentId(InstrumentId string)
 */
 func (client *Client) FuturesOrder(newOrderParams FuturesNewOrderParams) (FuturesNewOrderResult, error) {
 	var newOrderResult FuturesNewOrderResult
-	_, err := client.Request(POST, FuturesPathPrefix+"order", newOrderParams, &newOrderResult)
+	_, err := client.Request(POST, FUTURES_ORDER, newOrderParams, &newOrderResult)
 	return newOrderResult, err
 }
 
@@ -232,8 +231,43 @@ func (client *Client) FuturesOrder(newOrderParams FuturesNewOrderParams) (Future
 */
 func (client *Client) FuturesOrders(batchNewOrder FuturesBatchNewOrderParams) (FuturesBatchNewOrderResult, error) {
 	var batchNewOrderResult FuturesBatchNewOrderResult
-	_, err := client.Request(POST, FuturesPathPrefix+"orders", batchNewOrder, &batchNewOrderResult)
+	_, err := client.Request(POST, FUTURES_ORDERS, batchNewOrder, &batchNewOrderResult)
 	return batchNewOrderResult, err
+}
+
+/*
+ Get all of futures contract order list
+*/
+func (client *Client) GetFuturesOrders(InstrumentId string, status, from, to, limit int) (FuturesGetOrdersResult, error) {
+	var ordersResult FuturesGetOrdersResult
+	params := NewParams()
+	params["status"] = Int2String(status)
+	params["from"] = Int2String(from)
+	params["to"] = Int2String(to)
+	params["limit"] = Int2String(limit)
+	requestPath := BuildParams(GetInstrumentIdUri(FUTURES_INSTRUMENT_ORDER_LIST, InstrumentId), params)
+	_, err := client.Request(GET, requestPath, nil, &ordersResult)
+	return ordersResult, err
+}
+
+/*
+ Get all of futures contract a order by order id
+*/
+func (client *Client) GetFuturesOrder(InstrumentId string, orderId int64) (FuturesGetOrderResult, error) {
+	var getOrderResult FuturesGetOrderResult
+	_, err := client.Request(GET, GetInstrumentIdOrdersUri(FUTURES_INSTRUMENT_ORDER_INFO, InstrumentId, orderId), nil, &getOrderResult)
+	return getOrderResult, err
+}
+
+/*
+ Batch Cancel the orders
+*/
+func (client *Client) BatchCancelFuturesInstrumentOrders(InstrumentId, orderIds string) (FuturesBatchCancelInstrumentOrdersResult, error) {
+	var cancelInstrumentOrdersResult FuturesBatchCancelInstrumentOrdersResult
+	params := NewParams()
+	params["order_ids"] = orderIds
+	_, err := client.Request(POST, GetInstrumentIdUri(FUTURES_INSTRUMENT_ORDER_BATCH_CANCEL, InstrumentId), params, &cancelInstrumentOrdersResult)
+	return cancelInstrumentOrdersResult, err
 }
 
 /*
@@ -241,63 +275,25 @@ func (client *Client) FuturesOrders(batchNewOrder FuturesBatchNewOrderParams) (F
 */
 func (client *Client) CancelFuturesInstrumentOrder(InstrumentId string, orderId int64) (FuturesCancelInstrumentOrderResult, error) {
 	var cancelInstrumentOrderResult FuturesCancelInstrumentOrderResult
-	_, err := client.Request(DELETE, FuturesPathPrefix+"orders/"+InstrumentId+"/"+Int64ToString(orderId), nil,
+	_, err := client.Request(POST, GetInstrumentIdOrdersUri(FUTURES_INSTRUMENT_ORDER_CANCEL, InstrumentId, orderId), nil,
 		&cancelInstrumentOrderResult)
 	return cancelInstrumentOrderResult, err
 }
 
 /*
- Batch Cancel the orders
-*/
-func (client *Client) CancelFuturesInstrumentOrders(InstrumentId string) (FuturesCancelInstrumentOrdersResult, error) {
-	var cancelInstrumentOrdersResult FuturesCancelInstrumentOrdersResult
-	_, err := client.Request(DELETE, FuturesPathPrefix+"orders/"+InstrumentId, nil, &cancelInstrumentOrdersResult)
-	return cancelInstrumentOrdersResult, err
-}
-
-/*
- close position
-*/
-func (client *Client) FuturesClosePosition(closePositionParams FuturesClosePositionParams) (FuturesClosePositionResult, error) {
-	var closePositionResult FuturesClosePositionResult
-	_, err := client.Request(DELETE, FuturesPathPrefix+"close_position", closePositionParams, nil)
-	return closePositionResult, err
-}
-
-/*
- Get all of futures contract order list
-*/
-func (client *Client) GetFuturesOrders(getOrdersParams FuturesOrdersParams) (FuturesGetOrdersResult, error) {
-	var getOrdersResult FuturesGetOrdersResult
-	_, err := client.Request(GET, FuturesPathPrefix+"orders", getOrdersParams, &getOrdersResult)
-	return getOrdersResult, err
-}
-
-/*
- Get all of futures contract a order by order id
-*/
-func (client *Client) GetFuturesOrder(orderId int64) (FuturesGetOrderResult, error) {
-	var getOrderResult FuturesGetOrderResult
-	_, err := client.Request(GET, FuturesPathPrefix+"orders/"+Int64ToString(orderId), nil, &getOrderResult)
-	return getOrderResult, err
-}
-
-/*
  Get all of futures contract transactions.
 */
-func (client *Client) GetFuturesFills(fillsParams FuturesFillsParams) (FuturesFillsResult, error) {
-	var getFillsResult FuturesFillsResult
-	_, err := client.Request(GET, FuturesPathPrefix+"fills", fillsParams, &getFillsResult)
-	return getFillsResult, err
-}
-
-/*
- Get futures contract account volume
-*/
-func (client *Client) GetFuturesUsersSelfTrailingVolume() (FuturesUsersSelfTrailingVolumesResult, error) {
-	var usersSelfTrailingVolumesResult FuturesUsersSelfTrailingVolumesResult
-	_, err := client.Request(GET, FuturesPathPrefix+"users/self/trailing_volume", nil, &usersSelfTrailingVolumesResult)
-	return usersSelfTrailingVolumesResult, err
+func (client *Client) GetFuturesFills(InstrumentId string, orderId int64, from, to, limit int) ([]FuturesFillResult, error) {
+	var fillsResult []FuturesFillResult
+	params := NewParams()
+	params["order_id"] = Int64ToString(orderId)
+	params["instrument_id"] = InstrumentId
+	params["from"] = Int2String(from)
+	params["to"] = Int2String(to)
+	params["limit"] = Int2String(limit)
+	requestPath := BuildParams(FUTURES_FILLS, params)
+	_, err := client.Request(GET, requestPath, nil, &fillsResult)
+	return fillsResult, err
 }
 
 func parsePositions(response *http.Response, err error) (FuturesPosition, error) {
@@ -305,6 +301,8 @@ func parsePositions(response *http.Response, err error) (FuturesPosition, error)
 	if err != nil {
 		return position, err
 	}
+	var result Result
+	result.Result = false
 	jsonString := GetResponseDataJsonString(response)
 	if strings.Contains(jsonString, "\"margin_mode\":\"fixed\"") {
 		var fixedPosition FuturesFixedPosition
@@ -316,8 +314,7 @@ func parsePositions(response *http.Response, err error) (FuturesPosition, error)
 			position.MarginMode = fixedPosition.MarginMode
 			position.FixedPosition = fixedPosition.FixedPosition
 		}
-	}
-	if strings.Contains(jsonString, "\"margin_mode\":\"crossed\"") {
+	} else if strings.Contains(jsonString, "\"margin_mode\":\"crossed\"") {
 		var crossPosition FuturesCrossPosition
 		err = JsonString2Struct(jsonString, &crossPosition)
 		if err != nil {
@@ -327,7 +324,13 @@ func parsePositions(response *http.Response, err error) (FuturesPosition, error)
 			position.MarginMode = crossPosition.MarginMode
 			position.CrossPosition = crossPosition.CrossPosition
 		}
+	} else if strings.Contains(jsonString, "\"code\":") {
+		JsonString2Struct(jsonString, &position)
+		position.Result = result
+	} else {
+		position.Result = result
 	}
+
 	return position, nil
 }
 
@@ -336,6 +339,8 @@ func parseAccounts(response *http.Response, err error) (FuturesAccount, error) {
 	if err != nil {
 		return account, err
 	}
+	var result Result
+	result.Result = false
 	jsonString := GetResponseDataJsonString(response)
 	if strings.Contains(jsonString, "\"contracts\"") {
 		var fixedAccount FuturesFixedAccountInfo
@@ -347,7 +352,7 @@ func parseAccounts(response *http.Response, err error) (FuturesAccount, error) {
 			account.FixedAccount = fixedAccount.Info
 			account.MarginMode = "fixed"
 		}
-	} else {
+	} else if strings.Contains(jsonString, "\"realized_pnl\"") {
 		var crossAccount FuturesCrossAccountInfo
 		err = JsonString2Struct(jsonString, &crossAccount)
 		if err != nil {
@@ -357,36 +362,52 @@ func parseAccounts(response *http.Response, err error) (FuturesAccount, error) {
 			account.MarginMode = "crossed"
 			account.CrossAccount = crossAccount.Info
 		}
+	} else if strings.Contains(jsonString, "\"code\":") {
+		JsonString2Struct(jsonString, &account)
+		account.Result = result
+	} else {
+		account.Result = result
 	}
 	return account, nil
 }
 
-func parseCurrencyAccounts(response *http.Response, err error) (FuturesCurrencyAccounts, error) {
-	var futuresCurrencyAccounts FuturesCurrencyAccounts
+func parseCurrencyAccounts(response *http.Response, err error) (FuturesCurrencyAccount, error) {
+	var currencyAccount FuturesCurrencyAccount
 	if err != nil {
-		return futuresCurrencyAccounts, err
+		return currencyAccount, err
 	}
 	jsonString := GetResponseDataJsonString(response)
-	if strings.Contains(jsonString, FixedAccountFlag) {
-		var fixedAccounts FuturesFixedAccount
-		err = JsonString2Struct(jsonString, &fixedAccounts)
+	var result Result
+	result.Result = true
+	if strings.Contains(jsonString, "\"margin_mode\":\"fixed\"") {
+		var fixedAccount FuturesFixedAccount
+		err = JsonString2Struct(jsonString, &fixedAccount)
 		if err != nil {
-			return futuresCurrencyAccounts, err
+			return currencyAccount, err
 		} else {
-			futuresCurrencyAccounts.MarginMode = FIXED
-			futuresCurrencyAccounts.fixedAccount = fixedAccounts
+			currencyAccount.Result = result
+			currencyAccount.MarginMode = fixedAccount.MarginMode
+			currencyAccount.FixedAccount = fixedAccount
 		}
+	} else if strings.Contains(jsonString, "\"margin_mode\":\"crossed\"") {
+		var crossAccount FuturesCrossAccount
+		err = JsonString2Struct(jsonString, &crossAccount)
+		if err != nil {
+			return currencyAccount, err
+		} else {
+			currencyAccount.Result = result
+			currencyAccount.MarginMode = crossAccount.MarginMode
+			currencyAccount.CrossAccount = crossAccount
+		}
+	} else if strings.Contains(jsonString, "\"code\":") {
+		result.Result = true
+		JsonString2Struct(jsonString, &currencyAccount)
+		currencyAccount.Result = result
 	} else {
-		var crossAccounts FuturesCrossAccount
-		err = JsonString2Struct(jsonString, &crossAccounts)
-		if err != nil {
-			return futuresCurrencyAccounts, err
-		} else {
-			futuresCurrencyAccounts.MarginMode = CROSS
-			futuresCurrencyAccounts.crossAccount = crossAccounts
-		}
+		result.Result = true
+		currencyAccount.Result = result
 	}
-	return futuresCurrencyAccounts, nil
+	return currencyAccount, nil
 }
 
 func parsePage(response *http.Response) PageResult {

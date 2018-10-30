@@ -153,7 +153,7 @@ func TestGetFuturesInstrumentPriceLimit(t *testing.T) {
 
 func TestGetFuturesInstrumentLiquidation(t *testing.T) {
 	InstrumentIdx := "EOS-USD-181228"
-	status, from, to, limit := 1, 4, 0, 5
+	status, from, to, limit := 1, 1, 0, 5
 	liquidation, err := NewTestClient().GetFuturesInstrumentLiquidation(InstrumentIdx, status, from, to, limit)
 	if err != nil {
 		t.Error(err)
@@ -171,9 +171,10 @@ func TestGetFuturesPositions(t *testing.T) {
 	}
 	if position.MarginMode == "crossed" {
 		FmtPrintln("Futures crossed position: ", position)
-	}
-	if position.MarginMode == "fixed" {
+	} else if position.MarginMode == "fixed" {
 		FmtPrintln("Futures fixed position: ", position)
+	} else {
+		FmtPrintln("Futures position failed: ", position)
 	}
 }
 
@@ -187,6 +188,8 @@ func TestGetFuturesInstrumentPosition(t *testing.T) {
 	}
 	if position.MarginMode == "fixed" {
 		FmtPrintln("Futures fixed position: ", position)
+	} else {
+		FmtPrintln("Futures position failed: ", position)
 	}
 }
 
@@ -197,9 +200,10 @@ func TestGetFuturesAccounts(t *testing.T) {
 	}
 	if account.MarginMode == "crossed" {
 		FmtPrintln("Futures crossed account: ", account)
-	}
-	if account.MarginMode == "fixed" {
+	} else if account.MarginMode == "fixed" {
 		FmtPrintln("Futures fixed account: ", account)
+	} else {
+		FmtPrintln("Futures account failed: ", account)
 	}
 }
 
@@ -212,7 +216,8 @@ func TestGetFuturesAccountsByCurrency(t *testing.T) {
 }
 
 func TestGetFuturesAccountsLedgerByCurrency(t *testing.T) {
-	ledger, err := NewTestClient().GetFuturesAccountsLedgerByCurrency(currency)
+	from, to, limit := 1, 0, 2
+	ledger, err := NewTestClient().GetFuturesAccountsLedgerByCurrency(currency, from, to, limit)
 	if err != nil {
 		t.Error(err)
 	}
@@ -229,11 +234,96 @@ func TestGetFuturesAccountsHoldsByInstrumentId(t *testing.T) {
 
 func TestFuturesOrder(t *testing.T) {
 	var newOrderParams FuturesNewOrderParams
+	newOrderParams.ClientOid = "od12345678"
 	newOrderParams.InstrumentId = InstrumentId
+	newOrderParams.Type = IntToString(OPEN_SHORT)
+	newOrderParams.Price = "100000.00"
+	newOrderParams.Size = "1"
+	newOrderParams.MatchPrice = "0"
+	newOrderParams.Leverage = "20"
 
-	holds, err := NewTestClient().FuturesOrder(newOrderParams)
+	result, err := NewTestClient().FuturesOrder(newOrderParams)
 	if err != nil {
 		t.Error(err)
 	}
-	FmtPrintln("Futures Instrument holds: ", holds)
+	FmtPrintln("Futures new order: ", result)
+}
+
+func TestFuturesOrders(t *testing.T) {
+	var batchNewOrder FuturesBatchNewOrderParams
+	batchNewOrder.InstrumentId = InstrumentId
+	batchNewOrder.Leverage = "20"
+	var ordersData [5]FuturesBatchNewOrderItem
+	for i, loop := 1, 6; i < loop; i++ {
+		var item FuturesBatchNewOrderItem
+		item.ClientOid = "od" + IntToString(12345670+i)
+		item.Type = IntToString(OPEN_SHORT)
+		item.Price = IntToString(100000 + i)
+		item.Size = "1"
+		item.MatchPrice = "0"
+		ordersData[i-1] = item
+	}
+	json, err := Struct2JsonString(ordersData)
+	if err != nil {
+		t.Error(err)
+	}
+	batchNewOrder.OrdersData = json
+	result, err := NewTestClient().FuturesOrders(batchNewOrder)
+	if err != nil {
+		t.Error(err)
+	}
+	FmtPrintln("Futures new orders: ", result)
+}
+
+func TestGetFuturesOrders(t *testing.T) {
+	status, from, to, limit := 0, 1, 0, 5
+	orderList, err := NewTestClient().GetFuturesOrders(InstrumentId, status, from, to, limit)
+	if err != nil {
+		t.Error(err)
+	}
+	FmtPrintln("Futures Instrument order list: ", orderList)
+}
+
+func TestGetFuturesOrder(t *testing.T) {
+	orderId := int64(1713584667466752)
+	order, err := NewTestClient().GetFuturesOrder(InstrumentId, orderId)
+	if err != nil {
+		t.Error(err)
+	}
+	FmtPrintln("Futures Instrument order: ", order)
+}
+
+func TestBatchCancelFuturesInstrumentOrders(t *testing.T) {
+	var orderIds [3] int64
+	orderIds[0] = 1713484060138496
+	orderIds[1] = 1713484060990464
+	orderIds[2] = 1713484061907968
+	json, err := Struct2JsonString(orderIds)
+	if err != nil {
+		t.Error(err)
+	}
+	result, err := NewTestClient().BatchCancelFuturesInstrumentOrders(InstrumentId, json)
+	if err != nil {
+		t.Error(err)
+	}
+	FmtPrintln("Futures Instrument batch cancel order: ", result)
+}
+
+func TestCancelFuturesInstrumentOrder(t *testing.T) {
+	orderId := int64(1713484063611904)
+	result, err := NewTestClient().CancelFuturesInstrumentOrder(InstrumentId, orderId)
+	if err != nil {
+		t.Error(err)
+	}
+	FmtPrintln("Futures Instrument cancel order: ", result)
+}
+
+func TestGetFuturesFills(t *testing.T) {
+	orderId := int64(1713584667466752)
+	from, to, limit := 1, 0, 5
+	result, err := NewTestClient().GetFuturesFills(InstrumentId, orderId,from, to, limit)
+	if err != nil {
+		t.Error(err)
+	}
+	FmtPrintln("Futures Instrument fills: ", result)
 }

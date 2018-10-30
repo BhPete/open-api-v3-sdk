@@ -28,7 +28,4 @@ const (
 	FUTURES_INSTRUMENT_ORDER_CANCEL       = "/api/futures/v3/cancel_order/{instrument_id}/{order_id}"
 	FUTURES_INSTRUMENT_ORDER_BATCH_CANCEL = "/api/futures/v3/cancel_batch_orders/{instrument_id}"
 	FUTURES_FILLS                         = "/api/futures/v3/fills"
-	FUTURES_ACCOUNT_CURRENCY_GET_LEVERAGE = "/api/futures/v3/accounts/{currency}/leverage"
-	FUTURES_ACCOUNT_CURRENCY_SET_LEVERAGE = "/api/futures/v3/accounts/{currency}/leverage"
-	FUTURES_INSTRUMENT_MARK_PRICE         = "/api/futures/v3/instruments/{instrument_id}/mark_price"
 )

@@ -18,8 +18,8 @@ package okex
  LeverRate: lever, default 10.
 */
 type FuturesNewOrderParams struct {
-	InstrumentId string
-	LeverRate    string
+	InstrumentId string `json:"instrument_id"`
+	Leverage     string `json:"leverage"`
 	FuturesBatchNewOrderItem
 }
 
@@ -27,16 +27,16 @@ type FuturesNewOrderParams struct {
   OrdersData: Batch create new orders json string.(Max of 5 orders are allowed per request))
 */
 type FuturesBatchNewOrderParams struct {
-	InstrumentId string
-	OrdersData   []FuturesBatchNewOrderItem
-	LeverRate    string
+	InstrumentId string `json:"instrument_id"`
+	Leverage     string `json:"leverage"`
+	OrdersData   string `json:"orders_data"`
 }
 
 type FuturesBatchNewOrderItem struct {
 	ClientOid  string `json:"client_oid"`
 	Type       string `json:"type"`
 	Price      string `json:"price"`
-	Amount     string `json:"amount"`
+	Size       string `json:"size"`
 	MatchPrice string `json:"match_price"`
 }
 
@@ -57,11 +57,9 @@ type ClosePositionData struct {
 type FuturesOrdersParams struct {
 	Currency string
 	Status   int
-	CursorPage
 }
 
 type FuturesFillsParams struct {
-	InstrumentId string
-	OrderId      string
-	CursorPage
+	OrderId      string `json:"order_id"`
+	InstrumentId string `json:"instrument_id"`
 }
