@@ -1,0 +1,21 @@
+﻿<Window x:Class="SampleCS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SampleCS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="同步服务器时间" HorizontalAlignment="Left" Margin="36,32,0,0" VerticalAlignment="Top" Width="76" Click="btnSyncServerTimeClick"/>
+        <Button Content="获取币种列表" HorizontalAlignment="Left" Margin="132,32,0,0" VerticalAlignment="Top" Width="76" Click="btnGetCurrencies"/>
+        <Button Content="钱包账户信息" HorizontalAlignment="Left" Margin="232,32,0,0" VerticalAlignment="Top" Width="76" Click="btnGetWallet"/>
+        <Button Content="合约持仓信息" HorizontalAlignment="Left" Margin="36,90,0,0" VerticalAlignment="Top" Width="76" Click="btnGetPositions"/>
+        <Button Content="某个合约的持仓信息" HorizontalAlignment="Left" Margin="132,90,0,0" VerticalAlignment="Top" Width="76" Click="btnGetPositionByInstrumentId"/>
+        <Button Content="某个合约的持仓信息" HorizontalAlignment="Left" Margin="132,90,0,0" VerticalAlignment="Top" Width="76" Click="btnGetPositionByInstrumentId"/>
+        <Button Content="所有币种合约账户信息" HorizontalAlignment="Left" Margin="244,90,0,0" VerticalAlignment="Top" Width="136" Click="btnGetFuturesAccounts"/>
+    </Grid>
+</Window>
