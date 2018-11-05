@@ -4,23 +4,23 @@ using System.Text;
 
 namespace OKExSDK.Models.Account
 {
-    public class Wallet
+    public class WithDrawalResult
     {
         /// <summary>
-        /// 币种，如btc
+        /// 提币币种
         /// </summary>
         public string currency { get; set; }
         /// <summary>
-        /// 余额
+        /// 提币数量
         /// </summary>
-        public decimal balance { get; set; }
+        public decimal amount { get; set; }
         /// <summary>
-        /// 冻结(不可用)
+        /// 提币申请ID
         /// </summary>
-        public decimal hold { get; set; }
+        public int withdraw_id { get; set; }
         /// <summary>
-        /// 可用于提现或资金划转的数量
+        /// 提币申请结果。若是提现申请失败，将给出错误码提示
         /// </summary>
-        public decimal available { get; set; }
+        public bool result { get; set; }
     }
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OKExSDK.Models.Account
+namespace OKExSDK.Models.Ett
 {
-    public class Wallet
+    public class EttAccount
     {
         /// <summary>
-        /// 币种，如btc
+        /// 币种或ett名称
         /// </summary>
         public string currency { get; set; }
         /// <summary>
@@ -17,9 +17,9 @@ namespace OKExSDK.Models.Account
         /// <summary>
         /// 冻结(不可用)
         /// </summary>
-        public decimal hold { get; set; }
+        public decimal holds { get; set; }
         /// <summary>
-        /// 可用于提现或资金划转的数量
+        /// 可用于交易或资金划转的数量
         /// </summary>
         public decimal available { get; set; }
     }

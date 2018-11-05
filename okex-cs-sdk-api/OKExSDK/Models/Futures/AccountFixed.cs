@@ -4,23 +4,23 @@ using System.Text;
 
 namespace OKExSDK.Models.Futures
 {
-    public class AccountFixed : Account
+    public class AccountFixed
     {
         /// <summary>
-        /// 逐仓账户余额
+        /// 账户权益
         /// </summary>
-        public decimal fixed_balance { get; set; }
+        public string equity { get; set; }
         /// <summary>
-        /// 逐仓可用余额
+        /// 账户余额
         /// </summary>
-        public decimal available_qty { get; set; }
+        public string total_avail_balance { get; set; }
         /// <summary>
-        /// 冻结的保证金(成交以后仓位所需的)
+        /// 账户类型：逐仓 fixed
         /// </summary>
-        public decimal margin_frozen { get; set; }
+        public string margin_mode { get; set; }
         /// <summary>
-        /// 挂单冻结保证金
+        /// 合约列表
         /// </summary>
-        public decimal margin_for_unfilled { get; set; }
+        public List<Contract> contracts { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace OKExSDK
         public async Task<ServerTime> syncTimeAsync()
         {
             var url = $"{this.BASEURL}{this.GENERAL_SEGMENT}/time";
-            using (var httpClient = new HttpClient(new HttpInterceptor(this._apiKey, this._secret, this._passPhrase, null)))
+            using (var httpClient = new HttpClient())
             {
                 var res = await httpClient.GetAsync(url);
                 var contentStr = await res.Content.ReadAsStringAsync();
